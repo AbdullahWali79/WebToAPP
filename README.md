@@ -5,10 +5,19 @@ Convert a website URL into an Android APK wrapper workflow starter.
 This project is a **full-stack Next.js starter** that includes:
 - marketing landing page
 - dashboard with demo project
+- public showcase for read-only permanent projects
 - create project flow
 - build status tracking
 - mock API routes
 - build simulation queue
+- clone/download workflow for public projects
+
+## Ownership and visibility rules
+
+- Project owners can set visibility (`private` or `public`).
+- Owners can permanently save a project.
+- Permanent projects are locked: no user edits/deletes, public read-only access only.
+- Public project visitors can download APK and clone to their own dashboard.
 
 ## Important architecture note
 

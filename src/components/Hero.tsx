@@ -18,6 +18,9 @@ export function Hero(): JSX.Element {
             <Link href="/dashboard" className="btn btn-secondary">
               Open Dashboard
             </Link>
+            <Link href="/showcase" className="btn btn-link">
+              Explore Showcase
+            </Link>
           </div>
           <div className="note-card">
             <p className="note-title">Default demo website</p>

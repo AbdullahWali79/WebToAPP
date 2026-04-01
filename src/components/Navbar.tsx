@@ -10,6 +10,7 @@ export function Navbar(): JSX.Element {
         <nav className="nav-links" aria-label="Main navigation">
           <Link href="/">Home</Link>
           <Link href="/dashboard">Dashboard</Link>
+          <Link href="/showcase">Showcase</Link>
           <Link href="/projects/new">Create Project</Link>
         </nav>
       </div>

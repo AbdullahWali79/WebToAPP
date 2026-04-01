@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createBuildJob, listBuildJobs } from "@/lib/mock-db";
+import { createBuildJob, getCurrentUser, listBuildJobs } from "@/lib/mock-db";
 
 export async function GET(): Promise<NextResponse> {
   const builds = listBuildJobs();
@@ -16,15 +16,16 @@ export async function POST(request: Request): Promise<NextResponse> {
       );
     }
 
-    const build = createBuildJob(body.projectId);
-    if (!build) {
+    const user = getCurrentUser();
+    const result = createBuildJob(body.projectId, user.id);
+    if (!result.build) {
       return NextResponse.json(
-        { message: "Project not found for this build request." },
-        { status: 404 }
+        { message: result.error || "Project not found for this build request." },
+        { status: 400 }
       );
     }
 
-    return NextResponse.json({ build }, { status: 201 });
+    return NextResponse.json({ build: result.build }, { status: 201 });
   } catch {
     return NextResponse.json(
       { message: "Failed to create build job." },

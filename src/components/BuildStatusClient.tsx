@@ -103,8 +103,11 @@ export function BuildStatusClient({
       </section>
 
       <section className="card actions-row">
-        {build.status === "success" && build.apkUrl ? (
-          <a className="btn btn-primary" href={build.apkUrl} download>
+        {build.status === "success" && build.apkUrl && project?.id ? (
+          <a
+            className="btn btn-primary"
+            href={`/api/projects/${project?.id}/download?buildId=${build.id}`}
+          >
             Download APK
           </a>
         ) : (

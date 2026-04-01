@@ -22,6 +22,7 @@ export function ProjectForm(): JSX.Element {
   const [fileUploadSupport, setFileUploadSupport] = useState(true);
   const [orientation, setOrientation] = useState("portrait");
   const [fullscreen, setFullscreen] = useState(false);
+  const [visibility, setVisibility] = useState("private");
   const [iconFile, setIconFile] = useState<File | null>(null);
   const [splashFile, setSplashFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -53,6 +54,7 @@ export function ProjectForm(): JSX.Element {
           fileUploadSupport,
           orientation,
           fullscreen,
+          visibility,
           iconFileName: iconFile.name,
           iconMimeType: iconFile.type,
           splashFileName: splashFile?.name,
@@ -243,6 +245,21 @@ export function ProjectForm(): JSX.Element {
           />
           Fullscreen Option
         </label>
+      </div>
+
+      <div className="form-field">
+        <label htmlFor="visibility">Project Visibility</label>
+        <select
+          id="visibility"
+          value={visibility}
+          onChange={(event) => setVisibility(event.target.value)}
+        >
+          <option value="private">Private (only me)</option>
+          <option value="public">Public (read-only for others)</option>
+        </select>
+        <p className="muted form-help">
+          Permanent save can be enabled later from dashboard. Permanent projects become locked and cannot be edited/deleted by users.
+        </p>
       </div>
 
       <button type="submit" className="btn btn-primary full" disabled={submitting}>

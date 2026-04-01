@@ -1,6 +1,7 @@
 export type BuildStatus = "queued" | "processing" | "success" | "failed";
 export type OrientationMode = "portrait" | "landscape" | "auto";
 export type UploadedAssetType = "icon" | "splash";
+export type ProjectVisibility = "private" | "public";
 
 export interface User {
   id: string;
@@ -29,7 +30,11 @@ export interface Project {
   versionName: string;
   versionCode: number;
   options: ProjectOptions;
+  visibility: ProjectVisibility;
+  isPermanent: boolean;
+  downloadsCount: number;
   createdAt: string;
+  updatedAt: string;
 }
 
 export interface BuildJob {
@@ -67,9 +72,24 @@ export interface ProjectInput {
   iconMimeType?: string;
   splashFileName?: string;
   splashMimeType?: string;
+  visibility?: ProjectVisibility;
 }
 
 export interface DashboardProject {
   project: Project;
   latestBuild?: BuildJob;
+  isOwner: boolean;
+}
+
+export interface ShowcaseProject {
+  project: Project;
+  latestBuild?: BuildJob;
+  ownerName: string;
+}
+
+export interface GlobalStats {
+  totalProjects: number;
+  totalPublicPermanentProjects: number;
+  totalSuccessfulBuilds: number;
+  totalDownloads: number;
 }

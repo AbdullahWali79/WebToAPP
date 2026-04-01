@@ -10,7 +10,7 @@ export default function DashboardPage(): JSX.Element {
         <div className="container">
           <h1>Dashboard</h1>
           <p className="muted">
-            Your default demo project is preloaded and appears below.
+            Manage your own projects, set public visibility, permanently lock selected apps, or delete non-permanent projects.
           </p>
           <DashboardClient />
         </div>

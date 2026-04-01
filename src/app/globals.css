@@ -227,6 +227,12 @@ a {
   border: 1px solid var(--border);
 }
 
+.btn-danger {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
 .full {
   width: 100%;
 }
@@ -260,6 +266,10 @@ a {
 }
 
 .form-grid h2 {
+  margin: 0;
+}
+
+.form-help {
   margin: 0;
 }
 
@@ -380,6 +390,30 @@ a {
   margin: 0;
 }
 
+.project-flags {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.tiny-tag {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.16rem 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: #1f2937;
+  background: #f8fafc;
+}
+
+.tiny-tag.lock {
+  border-color: #fbbf24;
+  background: #fffbeb;
+  color: #92400e;
+}
+
 .project-actions {
   display: flex;
   align-items: center;
@@ -394,6 +428,30 @@ a {
 
 .project-url {
   margin: 0;
+}
+
+.project-admin-actions {
+  border-top: 1px dashed var(--border);
+  padding-top: 0.75rem;
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.stat-card {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 1.6rem;
 }
 
 .status-badge {
@@ -513,6 +571,22 @@ a {
   flex-wrap: wrap;
 }
 
+.history-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.history-row {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .notice {
   border: 1px solid #a7f3d0;
   background: #f0fdf4;
@@ -598,7 +672,8 @@ a {
 @media (max-width: 900px) {
   .hero-grid,
   .cards-grid,
-  .row-2 {
+  .row-2,
+  .stats-grid {
     grid-template-columns: 1fr;
   }
 

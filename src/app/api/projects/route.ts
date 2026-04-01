@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
-import { createProject, listProjects } from "@/lib/mock-db";
+import { createProject, getCurrentUser, listProjects } from "@/lib/mock-db";
 import { isImageMimeType, isValidPackageName, isValidVersionName, isValidWebsiteUrl } from "@/lib/validators";
 import type { ProjectInput } from "@/lib/types";
 
 const allowedOrientations = new Set(["portrait", "landscape", "auto"]);
+const allowedVisibility = new Set(["private", "public"]);
 
 export async function GET(): Promise<NextResponse> {
   const projects = listProjects();
@@ -75,6 +76,14 @@ export async function POST(request: Request): Promise<NextResponse> {
       );
     }
 
+    if (body.visibility && !allowedVisibility.has(body.visibility)) {
+      return NextResponse.json(
+        { message: "Visibility must be private or public." },
+        { status: 400 }
+      );
+    }
+
+    const user = getCurrentUser();
     const project = createProject({
       websiteUrl: body.websiteUrl,
       appName: body.appName,
@@ -91,8 +100,9 @@ export async function POST(request: Request): Promise<NextResponse> {
       iconFileName: body.iconFileName,
       iconMimeType: body.iconMimeType,
       splashFileName: body.splashFileName,
-      splashMimeType: body.splashMimeType
-    });
+      splashMimeType: body.splashMimeType,
+      visibility: body.visibility
+    }, user.id);
 
     return NextResponse.json({ project }, { status: 201 });
   } catch {
