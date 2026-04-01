@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#042F2E"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  <circle cx="540" cy="840" r="220" fill="#14B8A6" opacity="0.25"/>
+  <rect x="380" y="680" width="320" height="320" rx="72" fill="#F8FAFC"/>
+  <path d="M456 880h42l38-104 38 104h42l-58-152h-44z" fill="#0F766E"/>
+  <text x="540" y="1120" text-anchor="middle" fill="#E2E8F0" font-size="52" font-family="Segoe UI, sans-serif">
+    Abdullah Demo App
+  </text>
+</svg>
