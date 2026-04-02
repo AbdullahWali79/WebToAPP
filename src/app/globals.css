@@ -607,11 +607,18 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .footer-inner p {
   margin: 0;
   color: var(--muted);
+}
+
+.footer-inner a {
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .empty {
